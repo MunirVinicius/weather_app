@@ -13,11 +13,18 @@ app.get('/help',(req,res)=>{
 })
 
 app.get('/about',(req,res)=>{
-    res.send('What about me ?')
+    res.send(`<h1>about me</h1>
+    </br>
+    <p>Munir</p>
+    <p>20 years old</p>
+    `)
 })
 
 app.get('/weather',(req,res)=>{
-    res.send('That is the forecast')
+    res.send({
+        forecast:'its raining',
+        location: 'Rio de Janeiro'
+    })
 })
 
 //routes
