@@ -1,24 +1,16 @@
-const { response } = require('express')
+const path = require('path')
 const express = require('express')
 const app  = express()
+const publicPath = path.join (__dirname, '../public')
+
+const helpPath = path.join (__dirname, '../public/help')
+
+app.use(express.static(publicPath))
+
+app.use(express.static(helpPath))
 
 //routes
 
-app.get('', (req, res)=>{
-    res.send('Hello Express :)')
-})
-
-app.get('/help',(req,res)=>{
-    res.send('Im helping')
-})
-
-app.get('/about',(req,res)=>{
-    res.send(`<h1>about me</h1>
-    </br>
-    <p>Munir</p>
-    <p>20 years old</p>
-    `)
-})
 
 app.get('/weather',(req,res)=>{
     res.send({
