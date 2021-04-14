@@ -2,12 +2,17 @@ const path = require('path')
 const express = require('express')
 
 const app  = express()
-const publicPath = path.join (__dirname, '../public')
 
+// Define paths for Express config
+const publicPath = path.join (__dirname, '../public')
+const viewsPath = path.join (__dirname, '../templates')
+
+// Setup hbs engine and views location
 app.set('view engine', 'hbs')
-app.use(express.static(publicPath))
+app.set('views', viewsPath)
 
 //routes
+app.use(express.static(publicPath))
 
 app.get('',(req, res)=>{
     res.render('index',{
