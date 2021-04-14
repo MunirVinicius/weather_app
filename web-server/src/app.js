@@ -1,15 +1,18 @@
 const path = require('path')
 const express = require('express')
+const hbs = require('hbs')
 
 const app  = express()
 
 // Define paths for Express config
 const publicPath = path.join (__dirname, '../public')
-const viewsPath = path.join (__dirname, '../templates')
+const viewsPath = path.join (__dirname, '../templates/views')
+const partialsPath = path.join (__dirname, '../templates/partials')
 
 // Setup hbs engine and views location
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
+hbs.registerPartials(partialsPath)
 
 //routes
 app.use(express.static(publicPath))
@@ -30,8 +33,9 @@ app.get('/about',(req, res)=>{
 
 app.get('/help',(req,res)=>{
     res.render('help',{
-        title:'Title section',
-        helpMessage: 'Type help to see all possibles commands'
+        title:'Help section',
+        helpMessage: 'Type help to see all possibles commands',
+        name: 'Munir'
     })
 })
 
