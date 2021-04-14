@@ -1,16 +1,34 @@
 const path = require('path')
 const express = require('express')
+
 const app  = express()
 const publicPath = path.join (__dirname, '../public')
 
-const helpPath = path.join (__dirname, '../public/help')
-
+app.set('view engine', 'hbs')
 app.use(express.static(publicPath))
-
-app.use(express.static(helpPath))
 
 //routes
 
+app.get('',(req, res)=>{
+    res.render('index',{
+        title:'Weather App',
+        name: 'Munir'
+    })
+})
+
+app.get('/about',(req, res)=>{
+    res.render('about', {
+        title:'About me ...',
+        name:'Munir '
+    })
+})
+
+app.get('/help',(req,res)=>{
+    res.render('help',{
+        title:'Title section',
+        helpMessage: 'Type help to see all possibles commands'
+    })
+})
 
 app.get('/weather',(req,res)=>{
     res.send({
