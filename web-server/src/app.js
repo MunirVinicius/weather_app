@@ -46,6 +46,20 @@ app.get('/weather',(req,res)=>{
     })
 })
 
+app.get('/help/*', (req,res)=>{
+    res.render('404',{
+        title: 'error',
+        errorMessage: 'Page not found, try another search term'
+    })
+})
+
+app.get('*', (req,res)=>{
+    res.render('404',{
+        title: 'error',
+        errorMessage: 'Page not found, try another search term'
+    })
+})
+
 //routes
 
 app.listen(3000, ()=>{
