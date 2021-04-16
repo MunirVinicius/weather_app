@@ -1,5 +1,5 @@
 # :partly_sunny: Weather Application
-Weather Project, build during Andrew Mead Node.js course.
+Weather Project, build during Node.js course of Andrew Mead.
 
 ## :wrench: Technologies Used:
 Node.js
