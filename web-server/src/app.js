@@ -49,17 +49,18 @@ app.get('/weather',(req,res)=>{
     }
     geocode (req.query.address, (error, {latitude, longitude, location} = {})=>{
         if(error){
-           res.send({error: error})
+           return res.send({error: error})
         }
-        forecast (latitude, longitude, (error,{forecast,temperature})=>{
+        forecast (latitude, longitude, (error,{forecast,temperature}= {})=>{
             if(error){
-                res.send({error: error})
+                return res.send({error: error})
             }
-            res.send({
+            return res.send({
                 forecast: forecast + ', and the temperature is: ' + temperature + ' celcius degrees' ,
                 location: location,
                 address: req.query.address
             })
+        
         })
     })
 })
@@ -73,6 +74,7 @@ app.get('/products',(req,res)=>{
     res.send({
         products: []
     })
+    return;
 })
 
 

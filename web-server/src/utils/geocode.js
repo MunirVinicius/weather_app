@@ -5,13 +5,13 @@ const geocode = (address, callback) => {
 
     request({url, json:true},(error, {body}={})=>{
         if(error){
-            callback('Unable to connect to MapBox service')
+            return callback('Unable to connect to MapBox service')
         }
         else if (body.features.length === 0 || address === undefined){
-            callback('Unable to find location, try another search.')
+            return callback('Unable to find location, try another search.')
         }
         else{
-            callback(undefined, {
+            return callback(undefined, {
                 latitude: body.features[0].center[1],
                 longitude: body.features[0].center[0],
                 location: body.features[0].place_name
