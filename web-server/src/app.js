@@ -41,22 +41,24 @@ app.get('/help',(req,res)=>{
 
 app.get('/weather',(req,res)=>{
     res.send({
-        forecast:'its raining',
+        forecast:'its raining today',
         location: 'Rio de Janeiro'
     })
 })
 
 app.get('/help/*', (req,res)=>{
     res.render('404',{
-        title: 'error',
-        errorMessage: 'Page not found, try another search term'
+        title: 'Error 404',
+        errorMessage: 'Page not found, try another search term',
+        name: 'Munir'
     })
 })
 
 app.get('*', (req,res)=>{
     res.render('404',{
-        title: 'error',
-        errorMessage: 'Page not found, try another search term'
+        title: 'Error 404',
+        errorMessage: 'Page not found, try another search term',
+        name: 'Munir'
     })
 })
 
