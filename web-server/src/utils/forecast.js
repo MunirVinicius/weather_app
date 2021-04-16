@@ -11,7 +11,10 @@ const forecast = (latitude, longitude, callback)=>{
         }
         else{
             const fore_cast = body.current.weather_descriptions[0];
-            callback(undefined,{forecast:fore_cast})
+            callback(undefined,{
+                forecast:fore_cast,
+                temperature: body.current.temperature
+         })
         }
     })
 }
