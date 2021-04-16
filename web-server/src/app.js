@@ -26,14 +26,14 @@ app.get('',(req, res)=>{
 
 app.get('/about',(req, res)=>{
     res.render('about', {
-        title:'About me ...',
+        title:'About Me ...',
         name:'Munir '
     })
 })
 
 app.get('/help',(req,res)=>{
     res.render('help',{
-        title:'Help section',
+        title:'Help Section',
         helpMessage: 'Type help to see all possibles commands',
         name: 'Munir'
     })
